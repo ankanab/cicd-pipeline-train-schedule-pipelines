@@ -1,0 +1,11 @@
+pipeline{
+  agent any{
+    stages{
+      stages ('Build'){
+        echo 'Running build automation'
+        sh './gradlew build --no-daenom'
+        archiveArtifacts artifacts: 'dist/trainSchedule'
+      }
+    }
+  }
+}
